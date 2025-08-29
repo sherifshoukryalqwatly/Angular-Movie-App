@@ -1,0 +1,49 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 93.1vh;">
+    <div class="card shadow p-4" style="width: 400px;">
+      <h3 class="text-center mb-4">Login</h3>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <!-- Remember Me -->
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="rememberMe" formControlName="rememberMe" />
+          <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+
+        <!-- Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+
+      <div class="text-center mt-3">
+        <small>Don’t have an account? <a href="#">Register</a></small>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>
