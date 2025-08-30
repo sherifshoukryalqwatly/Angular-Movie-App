@@ -6,7 +6,7 @@ body{
 }
 .landing {
   position: relative;
-  height: 88vh;
+  height: 92vh;
   background-image: url('/landing.jpg');
   background-size: cover;
   background-position: center;
@@ -21,7 +21,7 @@ body{
 }
 .data{
   width: 500px;
-  z-index: 1000;
+  z-index: 1;
 }
 .box{
   background: linear-gradient(#1a2144,#1f1222);
