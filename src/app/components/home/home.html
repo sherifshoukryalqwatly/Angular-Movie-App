@@ -1,1 +1,162 @@
-<p>home works!</p>
+<!-- landing -->
+<div class="landing d-flex justify-content-center align-items-center">
+  <div class="overlay"></div>
+  <div class="data text-center text-light fs-3">
+    <h1>Unlimited movies, TV shows, and more</h1>
+    <p>Starts at EGP 100. Cancel anytime.</p>
+    <form class="d-flex justify-content-center">
+      <input  placeholder="Email Address" type="email" class="form-control fs-5">
+      <button type="submit" class="btn btn-outline-danger ms-1 w-50 fs-5">Get Started <i class="bi bi-chevron-compact-right"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- trending Now -->
+<div class="py-3 px-2">
+  <h1 class="text-light">Trending Now</h1>
+  <div id="movieCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      @for (slide of movieSlides; track $index) {
+        <div class="carousel-item" [class.active]="$index === 0">
+          <div class="d-flex justify-content-center">
+
+            @for (movie of slide; track movie.id) {
+              <div class="card mx-2" style="width: 12rem;">
+                <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+                    class="card-img-top"
+                    [alt]="movie.title">
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+  </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#movieCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#movieCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+
+<!-- Reasons to Join -->
+<div class="py-3 px-2">
+  <h1 class="text-light pb-4">More Reasons to Join</h1>
+  <div class="row gap-2 justify-content-center">
+    <div class="box col-xsm-8 col-md-5 col-lg-5">
+      <h2 class="pb-5">Enjoy on your TV</h2>
+      <p class="pb-5">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+      <i class="bi bi-tv d-block text-end"></i>
+    </div>
+    <div class="box col-sm-8 col-md-5 col-lg-5">
+      <h2 class="pb-5">Download your shows to watch offline</h2>
+      <p class="pb-5">Save your favorites easily and always have something to watch.</p>
+      <i class="bi bi-arrow-down-circle-fill d-block text-end"></i>
+    </div>
+    <div class="box col-sm-8 col-md-5 col-lg-5">
+      <h2 class="pb-5">Watch everywhere</h2>
+      <p class="pb-5">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+      <i class="bi bi-lightbulb-fill d-block text-end "></i>
+    </div>
+    <div class="box col-sm-8 col-md-5 col-lg-5">
+      <h2 class="pb-5">Create profiles for kids</h2>
+      <p class="pb-5">Send kids on adventures with their favorite characters in a space made just for them — free with your membership.</p>
+      <i class="bi bi-emoji-grin-fill d-block text-end"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Asked Questions -->
+<div class="py-3 px-2">
+  <h1 class="text-light mb-5">Frequently Asked Questions</h1>
+  <div class="accordion fs-1 fw-bold" id="accordionExample">
+    <div class="accordion-item bg-dark text-light">
+      <h2 class="accordion-header">
+        <button class="accordion-button fs-1 fw-bold bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          What Is Movies?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Movies is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item bg-dark text-light">
+      <h2 class="accordion-header text-light">
+        <button class="accordion-button collapsed bg-dark text-light fs-1 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          How Much Does Movies Cost ?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Watch Movies on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from EGP 100 to EGP 240 a month. No extra costs, no contracts.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item bg-dark text-light">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed bg-dark text-light fs-1 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Where Can I Watch ?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.You can also download your favorite shows with the iOS or Android app. Use downloads to watch while you're on the go and without an internet connection. Take Movies with you anywhere.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item bg-dark text-light">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed bg-dark text-light fs-1 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+          How Do I Cancel ?
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Movies is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item bg-dark text-light">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed bg-dark text-light fs-1 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+          Where Can I Watch on Movies ?
+        </button>
+      </h2>
+      <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Movies has an extensive library of feature films, documentaries, TV shows, anime, award-winning Movies originals, and more. Watch as much as you want, anytime you want.
+      </div>
+    </div>
+    </div>
+    <div class="accordion-item bg-dark text-light">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed bg-dark text-light fs-1 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+          is Movies Good For Kids ?
+        </button>
+      </h2>
+      <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          The Movies Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ready to watch?-->
+<div class="text-center text-light py-5">
+  <p>Ready to watch? Enter your email to create or restart your membership.</p>
+  <form class="d-flex justify-content-center w-50 m-auto">
+      <input  placeholder="Email Address" type="email" class="form-control fs-5">
+      <button type="submit" class="btn btn-outline-danger ms-1 w-50 fs-5">Get Started <i class="bi bi-chevron-compact-right"></i></button>
+  </form>
+</div>
+
+

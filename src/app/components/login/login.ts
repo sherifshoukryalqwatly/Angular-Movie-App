@@ -10,8 +10,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login.css'
 })
 export class Login {
-  email: string = '';
-  password: string = '';
   loginForm: FormGroup
   constructor(private router:Router,private fb: FormBuilder){
     this.loginForm = this.fb.group({
