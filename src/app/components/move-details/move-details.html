@@ -1,1 +1,30 @@
-<p>move-details works!</p>
+<div class="container mt-4">
+  @if (loading) {
+    <div class="text-center my-5">
+      <div class="spinner-border text-primary"></div>
+    </div>
+  } @else {
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          class="img-fluid rounded shadow"
+          alt="{{ movie.title }}"
+        />
+      </div>
+      <div class="col-md-8">
+        <h2>{{ movie.title }}</h2>
+        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p><strong>Rating:</strong> {{ movie.vote_average }}/10 ({{ movie.vote_count }} votes)</p>
+        <p><strong>Overview:</strong> {{ movie.overview }}</p>
+
+        <p>
+          <strong>Genres:</strong>
+          @for (genre of movie.genres; track genre.id) {
+            <span class="badge bg-secondary me-1">{{ genre.name }}</span>
+          }
+        </p>
+      </div>
+    </div>
+  }
+</div>

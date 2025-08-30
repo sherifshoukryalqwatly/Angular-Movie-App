@@ -1,3 +1,4 @@
+import { MoveDetails } from './components/move-details/move-details';
 import { Routes } from '@angular/router';
 import { Main } from './components/main/main';
 import { Home } from './components/home/home';
@@ -13,6 +14,7 @@ export const routes: Routes = [
       {path:"",redirectTo:'/home',pathMatch:'full'},
       {path:'home',component:Home,title:"Home Page"},
       {path:"movies",component:Movies,title:"Movies Page"},
+      {path:"movies/:id",component:MoveDetails,title:"Movies Details Page"},
       {path:"about-us",component:About,title:"About Page"},
       {path:"contact",component:Contact,title:"Contact Page"},
     ]

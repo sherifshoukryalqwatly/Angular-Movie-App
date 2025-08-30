@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { get } from 'http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -35,5 +36,14 @@ export class MoviesService {
       page: page
     }
   });
-}
+
+  }
+  getMovieDetails(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/movie/${id}`, {
+      params: {
+        api_key: this.apiKey
+      }
+    });
+  }
+
 }

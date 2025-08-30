@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { MoviesService } from './../../services/movies-service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,RouterModule],
   templateUrl: './movies.html',
   styleUrl: './movies.css'
 })

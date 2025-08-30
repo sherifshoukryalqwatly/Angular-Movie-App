@@ -22,17 +22,19 @@
   <div class="row">
     @for (movie of movies; track movie.id) {
       <div class="col-md-3 mb-4">
-        <div class="card h-100">
-          <img
-            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-            class="card-img-top"
-            alt="{{ movie.title }}"
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ movie.title }}</h5>
-            <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
+        <a class="text-decoration-none text-dark" [routerLink]="['/movies', movie.id]">
+          <div class="card h-100">
+            <img
+              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+              class="card-img-top"
+              alt="{{ movie.title }}"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ movie.title }}</h5>
+              <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     }
   </div>

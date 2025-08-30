@@ -25,11 +25,13 @@
           <div class="d-flex justify-content-center">
 
             @for (movie of slide; track movie.id) {
-              <div class="card mx-2" style="width: 12rem;">
-                <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-                    class="card-img-top"
-                    [alt]="movie.title">
-              </div>
+              <a class="text-decoration-none text-dark" [routerLink]="['/movies',movie.id]">
+                <div class="card mx-2" style="width: 12rem;">
+                  <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+                      class="card-img-top"
+                      [alt]="movie.title">
+                </div>
+              </a>
             }
           </div>
         </div>
