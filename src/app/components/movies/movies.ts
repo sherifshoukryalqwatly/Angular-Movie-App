@@ -86,4 +86,7 @@ export class Movies implements OnInit {
 
   return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 }
+  getStars(vote: number): number {
+    return Math.round(vote / 2); // TMDB 10 → 5 stars
+  }
 }

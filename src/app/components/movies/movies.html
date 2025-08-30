@@ -11,33 +11,56 @@
   </div>
   <!-- Loader -->
   @if (loading) {
-    <div class="text-center my-5">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <div class="loader-overlay d-flex flex-column justify-content-center align-items-center">
+      <div class="loading-dots">
+        <span></span><span></span><span></span>
       </div>
+      <p class="mt-3 text-light fs-5">Fetching movies...</p>
     </div>
   }
 
   <!-- Movie Cards -->
   <div class="row">
     @for (movie of movies; track movie.id) {
-      <div class="col-md-3 mb-4">
-        <a class="text-decoration-none text-dark" [routerLink]="['/movies', movie.id]">
-          <div class="card h-100">
+      <div class="col-md-6 col-lg-3 mb-4">
+        <a class="text-decoration-none" [routerLink]="['/movies', movie.id]">
+          <div class="card h-100 shadow-sm border-0 movie-card position-relative">
+
+            <!-- Rating Badge Overlay -->
+            <div class="rating-overlay position-absolute top-0 start-0 w-100 p-2 d-flex justify-content-between align-items-center">
+              <div class="stars text-warning">
+                @for (star of [1,2,3,4,5]; track star) {
+                  <i
+                    class="bi"
+                    [ngClass]="{
+                      'bi-star-fill': star <= getStars(movie.vote_average),
+                      'bi-star': star > getStars(movie.vote_average)
+                    }"
+                  ></i>
+                }
+              </div>
+              <span class="badge bg-dark bg-opacity-75 fs-6">
+                {{ movie.vote_average.toFixed(1) }}
+              </span>
+            </div>
+
+            <!-- Movie Poster -->
             <img
               [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-              class="card-img-top"
+              class="card-img-top rounded-top"
               alt="{{ movie.title }}"
             />
-            <div class="card-body">
-              <h5 class="card-title">{{ movie.title }}</h5>
-              <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
+
+            <!-- Movie Title -->
+            <div class="card-body text-center">
+              <h5 class="card-title fw-bold fs-5 text-dark">{{ movie.title }}</h5>
             </div>
           </div>
         </a>
       </div>
     }
   </div>
+
 
   <!-- Pagination -->
 @if (total_pages > 1) {

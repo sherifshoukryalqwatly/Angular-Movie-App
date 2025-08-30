@@ -1,0 +1,16 @@
+body {
+  background-color: #121212; /* dark theme */
+}
+
+h2 {
+  color: #fff;
+}
+
+p {
+  color: #bbb;
+  font-size: 1.1rem;
+}
+
+img {
+  object-fit: cover;
+}
