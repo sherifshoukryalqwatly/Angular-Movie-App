@@ -16,9 +16,24 @@ export class MoviesService {
     );
   }
 
-  getPopularMovies():Observable<any> {
+  getPopularMovies(page: number):Observable<any> {
     return this.http.get<any>(
-      `${this.baseUrl}/movie/popular?api_key=${this.apiKey}`
+      `${this.baseUrl}/movie/popular`,{
+        params:{
+          api_key:'e570a0e785a67483c5c20ca4782af6d1',
+          page:page
+        }
+      }
     );
   }
+
+  searchMovies(query: string, page: number = 1) {
+  return this.http.get(`https://api.themoviedb.org/3/search/movie`, {
+    params: {
+      api_key: 'e570a0e785a67483c5c20ca4782af6d1',
+      query: query,
+      page: page
+    }
+  });
+}
 }

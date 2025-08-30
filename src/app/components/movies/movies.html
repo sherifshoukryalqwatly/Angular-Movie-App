@@ -1,1 +1,66 @@
-<p>movies works!</p>
+<div class="container mt-4">
+  <!-- Search Section -->
+  <div class="mb-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search for a movie..."
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="onSearch()"
+    />
+  </div>
+  <!-- Loader -->
+  @if (loading) {
+    <div class="text-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  }
+
+  <!-- Movie Cards -->
+  <div class="row">
+    @for (movie of movies; track movie.id) {
+      <div class="col-md-3 mb-4">
+        <div class="card h-100">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            class="card-img-top"
+            alt="{{ movie.title }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text">{{ movie.overview | slice:0:100 }}...</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Pagination -->
+@if (total_pages > 1) {
+  <nav>
+    <ul class="pagination justify-content-center">
+
+      <!-- Previous -->
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(currentPage - 1)">Previous</button>
+      </li>
+
+      <!-- Page numbers -->
+      @for (page of visiblePages; track page) {
+        <li class="page-item" [class.active]="currentPage === page">
+          <button class="page-link" (click)="changePage(page)">
+            {{ page }}
+          </button>
+        </li>
+      }
+
+      <!-- Next -->
+      <li class="page-item" [class.disabled]="currentPage === total_pages">
+        <button class="page-link" (click)="changePage(currentPage + 1)">Next</button>
+      </li>
+    </ul>
+  </nav>
+}
+</div>

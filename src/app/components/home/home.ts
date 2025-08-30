@@ -16,7 +16,7 @@ export class Home implements OnInit {
   ngOnInit() {
 
     // Or: get popular movies
-    this.MoviesService.getPopularMovies().subscribe((res) => {
+    this.MoviesService.getPopularMovies(1).subscribe((res) => {
 
       this.movies = res.results;
       for (let i = 0; i < this.movies.length; i += 5) {
